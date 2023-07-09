@@ -1,5 +1,5 @@
 
-<p align="justify">📌 This reade.me  xxxx "</i> study.</p>
+<p align="justify">📌 This reade.me  xxxx </i> xxx </p>
 
 <p align="justify">📎 Link to paper <a href="testsmells">[not available]</a></p>
 
@@ -11,11 +11,27 @@
 ![testsmell](https://img.shields.io/badge/testsmell%20-%23323330.svg?&style=for-the-badge&logo=perfil&logoColor=black&color=dc322f)
 ![refactoring](https://img.shields.io/badge/refactoring%20-%23323330.svg?&style=for-the-badge&logo=perfil&logoColor=black&color=404d59)
 
-![StackExchange](https://img.shields.io/badge/StackExchange%20-%23323330.svg?&style=for-the-badge&logo=perfil&logoColor=black&color=25d366)
-![StackOverflow](https://img.shields.io/badge/StackOverflow%20-%23323330.svg?&style=for-the-badge&logo=perfil&logoColor=black&color=8000ff)
 ![SoftwareEngineering](https://img.shields.io/badge/SoftwareEngineering%20-%23323330.svg?&style=for-the-badge&logo=perfil&logoColor=black&color=ffb800)
-![CodeReview](https://img.shields.io/badge/CodeReview%20-%23323330.svg?&style=for-the-badge&logo=perfil&logoColor=black&color=006dec)
-
 ![Developers'perception](https://img.shields.io/badge/Developers'perception%20-%23323330.svg?&style=for-the-badge&logo=perfil&logoColor=black&color=f7df1f)
 ![Software Maintenance](https://img.shields.io/badge/SoftwareMaintenance%20-%23323330.svg?&style=for-the-badge&logo=perfil&logoColor=black&color=f57a17)
 ![Evolution](https://img.shields.io/badge/Evolution%20-%23323330.svg?&style=for-the-badge&logo=perfil&logoColor=black&color=777bb4)
+
+
+<p align="center">
+ <h2>Test smells 🐞</h2>
+</p>
+<p> ➡ See <a href="testsmells.md" >definitions</a> of test smells</p>
+<img width="100%" src="problems.svg" align="center" alt=""/>
+
+<p align="center">
+ <h2>Test smells prevention guideline 🧹</h2>
+</p>
+
+<!--<p> ➡ See <a href="testcodrefactoring.md" >definitions</a> of refactorings</p>-->
+<img width="48%" src="refactorings.svg" align="center" alt=""/>
+
+<p align="center">
+ <h2>Contributions 🤝</h2>
+</p>
+
+<p align="justify">Contributions to maintain this summary up to date are appreciated and encouraged. Please submit your pull request. </p>
