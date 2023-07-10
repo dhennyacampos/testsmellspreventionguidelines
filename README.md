@@ -23,15 +23,28 @@
 <p align="center">
  <h2>Test code </h2>
 </p>
+If your <b> test code</b> contains any of the following structures, your test case may contain <b>"test smells"</b>.
 
-
+* A test method that contains multiple assertion statements without an argument as a parameter;
+* A test method that contains one or more control statements, i.e, if, switch, conditional expression, for, foreach, or while statements;
+* Method with more than one assertion statement with the same parameters;
+* Method contains an instance of a File class without calling the methods <b>Exists(), isFile() or noExists()</b> methods of the object;
+* Method that invokes the <b>Thread.sleep()</b> method;
+* Method does not contain a single assertion statement and <b>@Test</b> (expected) annotation parameter.
 
 
 <p align="center">
- <h2>Test smells 🐞</h2>
+ <h2>What are test smells? 🐞</h2>
 </p>
-<p> ➡ See <a href="testsmells.md" >definitions</a> of test smells</p>
-<img width="100%" src="problems.svg" align="center" alt=""/>
+
+<b>Test smells</b> are indications of problems or bad practices in software testing that can lead to inefficient testing or even failure to identify software problems s (PALOMBA
+et al., 2016; PERUMA, 2018; GAROUSI, 2018; ALJEDAANI et al., 2021).  The literature presents several types of test smells. GAROUSI, 2018 presents a catalog with more than 80 ones.
+
+<p> ➡ See <a href="testsmells.md" >definitions and exemplo </a> of test smells</p>
+
+
+
+
 
 <p align="center">
  <h2>Test smells prevention guideline 🧹</h2>
