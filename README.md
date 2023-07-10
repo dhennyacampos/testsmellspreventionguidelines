@@ -38,7 +38,7 @@ If your <b> test code</b> contains any of the following structures, your test ca
 </p>
 
 <b>Test smells</b> are indications of problems or bad practices in software testing that can lead to inefficient testing or even failure to identify software problems s (PALOMBA
-et al., 2016; PERUMA, 2018; GAROUSI, 2018; ALJEDAANI et al., 2021).  The literature presents several types of test smells. GAROUSI, 2018 presents a catalog with more than 80 ones.
+et al., 2016; PERUMA et. al, 2018; GAROUSI, 2018; ALJEDAANI et al., 2021).  The literature presents several types of test smells. GAROUSI, 2018 presents a catalog with more than 80 ones.
 For this study, we will address the 6 most cited test smells in the literature, which are:
 
 * Assertion Roulette (AR)
