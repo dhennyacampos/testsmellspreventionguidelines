@@ -55,14 +55,7 @@ For this study, we will address the 6 most cited test smells in the literature, 
 </p>
 
 To prevent these kinds of problems known as <b>"test smells"</b> from occurring in test code, it is important to avoid certain scripting structures in the test code. 
-In the following we will introduce some structures that will help developers avoid having the following test smells in their test code.
-
-* Assertion Roulette (AR)
-* Conditional Logic Test (CTL)
-* Duplicate Assert (DA)
-* Resource Optimism (RO)
-* Sleepy Test (ST)
-* Unknown Test (UT)
+In the following we will show some structures that will help developers avoid having the following test smells in their test code.
 
 <p> ➡ See <a href="testcodreprevention.md" >prevention </a> of test smells</p>
 
