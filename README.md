@@ -57,7 +57,7 @@ For this study, we will address the 6 most cited test smells in the literature, 
 To prevent these kinds of problems known as <b>"test smells"</b> from occurring in test code, it is important to avoid certain scripting structures in the test code. 
 In the following we will show some structures that will help developers avoid having the following test smells in their test code.
 
-<p> ➡ See <a href="testcodreprevention.md" >prevention </a> of test smells</p>
+<p> ➡ See <a href="testcodreprevention.md" >prevention and exemplo </a> of test smells</p>
 
 <p align="center">
  <h2>Contributions 🤝</h2>
