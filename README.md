@@ -1,5 +1,5 @@
 <p align="center">
- <img width="300px" src="image.png" align="center" alt=""/>
+ <img width="300px" src="image1.jpg" align="center" alt=""/>
  <h2>Welcome 👋</h2>
 </p>
 
