@@ -40,11 +40,14 @@ If your <b> test code</b> contains any of the following structures, your test ca
 <b>Test smells</b> are indications of problems or bad practices in software testing that can lead to inefficient testing or even failure to identify software problems s (PALOMBA
 et al., 2016; PERUMA, 2018; GAROUSI, 2018; ALJEDAANI et al., 2021).  The literature presents several types of test smells. GAROUSI, 2018 presents a catalog with more than 80 ones.
 
+* Assertion Roulette (AR)
+* Conditional Logic Test (CTL)
+* Duplicate Assert (DA)
+* Resource Optimism (RO)
+* Sleepy Test (ST)
+* Unknown Test (UT)
+
 <p> ➡ See <a href="testsmells.md" >definitions and exemplo </a> of test smells</p>
-
-
-
-
 
 <p align="center">
  <h2>Test smells prevention guideline 🧹</h2>
