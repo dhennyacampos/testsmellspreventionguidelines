@@ -39,6 +39,7 @@ If your <b> test code</b> contains any of the following structures, your test ca
 
 <b>Test smells</b> are indications of problems or bad practices in software testing that can lead to inefficient testing or even failure to identify software problems s (PALOMBA
 et al., 2016; PERUMA, 2018; GAROUSI, 2018; ALJEDAANI et al., 2021).  The literature presents several types of test smells. GAROUSI, 2018 presents a catalog with more than 80 ones.
+For this study, we will address the 6 most cited test smells in the literature, which are:
 
 * Assertion Roulette (AR)
 * Conditional Logic Test (CTL)
@@ -50,11 +51,12 @@ et al., 2016; PERUMA, 2018; GAROUSI, 2018; ALJEDAANI et al., 2021).  The literat
 <p> ➡ See <a href="testsmells.md" >definitions and exemplo </a> of test smells</p>
 
 <p align="center">
- <h2>Test smells prevention guideline 🧹</h2>
+ <h2>Test smells prevention 🧹</h2>
 </p>
 
-<!--<p> ➡ See <a href="testcodrefactoring.md" >definitions</a> of refactorings</p>-->
-<img width="48%" src="refactorings.svg" align="center" alt=""/>
+To prevent these kinds of problems known as " <b>"test smells"</b> from occurring in test code, it is important to avoid certain scripting structures in the test code.
+
+<p> ➡ See <a href="testcodreprevention.md" >prevention </a> of test smells</p>
 
 <p align="center">
  <h2>Contributions 🤝</h2>
