@@ -28,9 +28,9 @@ If your <b> test code</b> contains any of the following structures, your test ca
 * A test method that contains multiple assertion statements without an argument as a parameter;
 * A test method that contains one or more control statements, i.e, if, switch, conditional expression, for, foreach, or while statements;
 * Method with more than one assertion statement with the same parameters;
-* Method contains an instance of a File class without calling the methods <b>Exists(), isFile() or noExists()</b> methods of the object;
-* Method that invokes the <b>Thread.sleep()</b> method;
-* Method does not contain a single assertion statement and <b>@Test</b> (expected) annotation parameter.
+* Method contains an instance of a File class without calling the methods Exists(), isFile() or noExists() methods of the object;
+* Method that invokes the Thread.sleep() method;
+* Method does not contain a single assertion statement and @Test (expected) annotation parameter.
 
 
 <p align="center">
