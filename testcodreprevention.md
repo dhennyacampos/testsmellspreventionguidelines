@@ -9,112 +9,111 @@
 * <b>Assertion Roulette (AR):</b>
      * <b>Prevention 1:</b> Splitting into several methods into others to avoid multiple assertions within the same test method.
        ``` java
-       package storage;
-       
-       public class AuthenticationTests {
-
-        @Test
-        public void testInitUserRole_ID() {
-            Authentication authentication = builder.user("{\"id\":\"admin\",\"username\":\"admin\",\"name\":\"Administrator\",\"userType\":\"default\"}")
-                    .role("[{\"id\":\"admin-role\",\"name\":\"admin\"}]")
-
-                    .permission("[{\"id\":\"user-manager\",\"actions\":[\"query\",\"get\",\"update\"]" +
-                            ",\"dataAccesses\":[{\"action\":\"query\",\"field\":\"test\",\"fields\":[\"1\",\"2\",\"3\"],\"scopeType\":\"CUSTOM_SCOPE\",\"type\":\"DENY_FIELDS\"}]}]")
-
-                    .build();
-
-            //test user
-            assertEquals(authentication.getUser().getId(), "admin");
-        }
-
-        @Test
-        public void testInitUserRole_Name() {
-            Authentication authentication = builder.user("{\"id\":\"admin\",\"username\":\"admin\",\"name\":\"Administrator\",\"userType\":\"default\"}")
-                    .role("[{\"id\":\"admin-role\",\"name\":\"admin\"}]")
-
-                    .permission("[{\"id\":\"user-manager\",\"actions\":[\"query\",\"get\",\"update\"]" +
-                            ",\"dataAccesses\":[{\"action\":\"query\",\"field\":\"test\",\"fields\":[\"1\",\"2\",\"3\"],\"scopeType\":\"CUSTOM_SCOPE\",\"type\":\"DENY_FIELDS\"}]}]")
-
-                    .build();
-
-            //test user
-            assertEquals(authentication.getUser().getUsername(), "admin");
-        }
-
-        @Test
-        public void testInitUserRole_FullName() {
-            Authentication authentication = builder.user("{\"id\":\"admin\",\"username\":\"admin\",\"name\":\"Administrator\",\"userType\":\"default\"}")
-                    .role("[{\"id\":\"admin-role\",\"name\":\"admin\"}]")
-
-                    .permission("[{\"id\":\"user-manager\",\"actions\":[\"query\",\"get\",\"update\"]" +
-                            ",\"dataAccesses\":[{\"action\":\"query\",\"field\":\"test\",\"fields\":[\"1\",\"2\",\"3\"],\"scopeType\":\"CUSTOM_SCOPE\",\"type\":\"DENY_FIELDS\"}]}]")
-
-                    .build();
-
-            assertEquals(authentication.getUser().getName(), "Administrator");
-        }
-       } 
+       1 package storage;
+       2
+       3 public class AuthenticationTests {
+       4
+       5 @Test
+       6 public void testInitUserRole_ID() {
+       7     Authentication authentication = builder.user("{\"id\":\"admin\",\"username\":\"admin\",\"name\":\"Administrator\",\"userType\":\"default\"}")
+       8             .role("[{\"id\":\"admin-role\",\"name\":\"admin\"}]")
+       9
+       10             .permission("[{\"id\":\"user-manager\",\"actions\":[\"query\",\"get\",\"update\"]" +
+       11                     ",\"dataAccesses\":[{\"action\":\"query\",\"field\":\"test\",\"fields\":[\"1\",\"2\",\"3\"],\"scopeType\":\"CUSTOM_SCOPE\",\"type\":\"DENY_FIELDS\"}]}]")
+       12
+       13             .build();
+       14 
+       15     //test user
+       16     assertEquals(authentication.getUser().getId(), "admin");
+       17 }
+       17 
+       18 @Test
+       19 public void testInitUserRole_Name() {
+       20     Authentication authentication = builder.user("{\"id\":\"admin\",\"username\":\"admin\",\"name\":\"Administrator\",\"userType\":\"default\"}")
+       21             .role("[{\"id\":\"admin-role\",\"name\":\"admin\"}]")
+       22
+       23             .permission("[{\"id\":\"user-manager\",\"actions\":[\"query\",\"get\",\"update\"]" +
+       24                     ",\"dataAccesses\":[{\"action\":\"query\",\"field\":\"test\",\"fields\":[\"1\",\"2\",\"3\"],\"scopeType\":\"CUSTOM_SCOPE\",\"type\":\"DENY_FIELDS\"}]}]")
+       25
+       26             .build();
+       27
+       28     //test user
+       29     assertEquals(authentication.getUser().getUsername(), "admin");
+       30 }
+       31
+       32 @Test
+       33 public void testInitUserRole_FullName() {
+       34     Authentication authentication = builder.user("{\"id\":\"admin\",\"username\":\"admin\",\"name\":\"Administrator\",\"userType\":\"default\"}")
+       35             .role("[{\"id\":\"admin-role\",\"name\":\"admin\"}]")
+       36
+       37             .permission("[{\"id\":\"user-manager\",\"actions\":[\"query\",\"get\",\"update\"]" +
+       38                     ",\"dataAccesses\":[{\"action\":\"query\",\"field\":\"test\",\"fields\":[\"1\",\"2\",\"3\"],\"scopeType\":\"CUSTOM_SCOPE\",\"type\":\"DENY_FIELDS\"}]}]")
+       39
+       40             .build();
+       41
+       42     assertEquals(authentication.getUser().getName(), "Administrator");
+       43 }
+       44 } 
        ```
      * <b>Prevention 2:</b> Including the explanation parameter.
        ``` java
-        package storage;
-
-        public class MetodoSetupExtracaoAssertions {
-        @Test
-        public void testInitUserRoleAndPermission() {
-            Authentication authentication = builder.user("{\"id\":\"admin\",\"username\":\"admin\",\"name\":\"Administrator\",\"userType\":\"default\"}")
-                    .role("[{\"id\":\"admin-role\",\"name\":\"admin\"}]")
-
-                    .permission("[{\"id\":\"user-manager\",\"actions\":[\"query\",\"get\",\"update\"]" +
-                            ",\"dataAccesses\":[{\"action\":\"query\",\"field\":\"test\",\"fields\":[\"1\",\"2\",\"3\"],\"scopeType\":\"CUSTOM_SCOPE\",\"type\":\"DENY_FIELDS\"}]}]")
-
-                    .build();
-
-            //test user
-           assertEquals("Mensagem explanatória 01", authentication.getUser().getId(),"admin");
-           assertEquals("Mensagem explanatória 02",authentication.getUser().getUsername(),"admin");
-           assertEquals("Mensagem explanatória 03",authentication.getUser().getName(),"Administrator");
-           assertEquals("Mensagem explanatória 04",authentication.getUser().getUserType(), "default")
-
-        }
-
+       1 package storage;
+       2
+       3 public class MetodoSetupExtracaoAssertions {
+       4 @Test
+       5 public void testInitUserRoleAndPermission() {
+       6     Authentication authentication = builder.user("{\"id\":\"admin\",\"username\":\"admin\",\"name\":\"Administrator\",\"userType\":\"default\"}")
+       7             .role("[{\"id\":\"admin-role\",\"name\":\"admin\"}]")
+       8 
+       9            .permission("[{\"id\":\"user-manager\",\"actions\":[\"query\",\"get\",\"update\"]" +
+       10                     ",\"dataAccesses\":[{\"action\":\"query\",\"field\":\"test\",\"fields\":[\"1\",\"2\",\"3\"],\"scopeType\":\"CUSTOM_SCOPE\",\"type\":\"DENY_FIELDS\"}]}]")
+       11 
+       12             .build();
+       13
+       14    //test user
+       15    assertEquals("Mensagem explanatória 01", authentication.getUser().getId(),"admin");
+       16    assertEquals("Mensagem explanatória 02",authentication.getUser().getUsername(),"admin");
+       17    assertEquals("Mensagem explanatória 03",authentication.getUser().getName(),"Administrator");
+       18    assertEquals("Mensagem explanatória 04",authentication.getUser().getUserType(), "default")
+       19
+       20 }
        ```
      * <b>Prevention 3:</b> Put the setup into a specific method.
        ``` java
-         package storage;
-
-         public class AuthenticationTests {
-
-         @Before
-         public void setUp(){
-            Authentication authentication = builder.user("{\"id\":\"admin\",\"username\":\"admin\",\"name\":\"Administrator\",\"userType\":\"default\"}")
-                    .role("[{\"id\":\"admin-role\",\"name\":\"admin\"}]")
-
-                    .permission("[{\"id\":\"user-manager\",\"actions\":[\"query\",\"get\",\"update\"]" +
-                            ",\"dataAccesses\":[{\"action\":\"query\",\"field\":\"test\",\"fields\":[\"1\",\"2\",\"3\"],\"scopeType\":\"CUSTOM_SCOPE\",\"type\":\"DENY_FIELDS\"}]}]")
-
-                    .build();
-        }
-        @Test
-        public void testInitUserRole_ID() {
-            assertEquals(authentication.getUser().getId(), "admin");
-        }
-
-        @Test
-        public void testInitUserRole_Name() {
-            assertEquals(authentication.getUser().getUsername(), "admin");
-        }
-
-        @Test
-        public void testInitUserRole_FullName() {
-            assertEquals(authentication.getUser().getName(), "Administrator");
-        }
-
-        @Test
-        public void testInitUserRole_Default() {
-            assertEquals(authentication.getUser().getUserType(), "default");
-        }
-       }
+        1 package storage;
+        2
+        3 public class AuthenticationTests {
+        4
+        5 @Before
+        6 public void setUp(){
+        7    Authentication authentication = builder.user("{\"id\":\"admin\",\"username\":\"admin\",\"name\":\"Administrator\",\"userType\":\"default\"}")
+        8            .role("[{\"id\":\"admin-role\",\"name\":\"admin\"}]")
+        9
+        10            .permission("[{\"id\":\"user-manager\",\"actions\":[\"query\",\"get\",\"update\"]" +
+        11                    ",\"dataAccesses\":[{\"action\":\"query\",\"field\":\"test\",\"fields\":[\"1\",\"2\",\"3\"],\"scopeType\":\"CUSTOM_SCOPE\",\"type\":\"DENY_FIELDS\"}]}]")
+        12
+        13            .build();
+        14 }
+        15 @Test
+        16 public void testInitUserRole_ID() {
+        17    assertEquals(authentication.getUser().getId(), "admin");
+        19 }
+        20
+        21 @Test
+        22 public void testInitUserRole_Name() {
+        23    assertEquals(authentication.getUser().getUsername(), "admin");
+        24 }
+        25
+        26 @Test
+        27 public void testInitUserRole_FullName() {
+        28    assertEquals(authentication.getUser().getName(), "Administrator");
+        29 }
+        30
+        31 @Test
+        32 public void testInitUserRole_Default() {
+        33    assertEquals(authentication.getUser().getUserType(), "default");
+        34 }
+        35 }
        ```
 * <b>Conditional Logic Test (CTL):</b>
      * <b>Prevention 1:</b> Splitting the method into more methods to reach the conditional structures.
@@ -126,31 +125,30 @@
 * <b>Duplicate Assert (DA):</b>
      * <b>Prevention 1:</b> Dividing the original method into more test methods for each new value that the variable assumes.
        ``` java
-             public class HashMapTwoFactorTokenManagerTest {
-         HashMapTwoFactorTokenManager tokenManager = new HashMapTwoFactorTokenManager();
-         TwoFactorToken twoFactorToken = tokenManager.getToken("test", "test");
-     
-         @Test
-         @SneakyThrows
-         public void test() {
-             Assert.assertTrue(twoFactorToken.expired());
-         }
-         
-         @Test
-         @SneakyThrows
-         public void test() {
-             twoFactorToken.generate(1000L);
-             Assert.assertFalse(twoFactorToken.expired());
-         }
-         
-             @Test
-         @SneakyThrows
-         public void test() {
-             twoFactorToken.generate(1000L);
-             Thread.sleep(1100);
-             Assert.assertTrue(twoFactorToken.expired());
-         }
-       }
+       1 public class HashMapTwoFactorTokenManagerTest {
+       2   HashMapTwoFactorTokenManager tokenManager = new HashMapTwoFactorTokenManager();
+       3   TwoFactorToken twoFactorToken = tokenManager.getToken("test", "test");
+       4  @Test
+       5  @SneakyThrows
+       6  public void test() {
+       7      Assert.assertTrue(twoFactorToken.expired());
+       8  }
+       9  
+       10 @Test
+       11 @SneakyThrows
+       12 public void test() {
+       13      twoFactorToken.generate(1000L);
+       14      Assert.assertFalse(twoFactorToken.expired());
+       15  }
+       16  
+       17 @Test
+       18 @SneakyThrows
+       19 public void test() {
+       20      twoFactorToken.generate(1000L);
+       21      Thread.sleep(1100);
+       22      Assert.assertTrue(twoFactorToken.expired());
+       23  }
+       24 }
        ```
 
 * <b>Resource Optimism (RO):</b>
@@ -169,23 +167,23 @@
 * <b>Sleepy Test (ST):</b> 
      * <b>Prevention 1:</b> Using an intelligent waiting library (e.g., Awaitility)
        ``` java
-        public class DefaultTimeoutMapTest {
- 
-        @Test
-        public void testDefaultTimeoutMapPurge() throws Exception {
-              DefaultTimeoutMap<String, Integer> map = new DefaultTimeoutMap<>(executor, 100);
-              map.start();
-              assertTrue(map.currentTime() > 0);
-              assertEquals(0, map.size());
-              map.put("A", 123, 50);
-              assertEquals(1, map.size());
-      
-              await().atMost(Duration.ofSeconds(2))
-                      .untilAsserted(() -> assertEquals(0, map.size()));
-      
-              map.stop();
-           }
-        }
+        1 public class DefaultTimeoutMapTest {
+        2 
+        3 @Test
+        4 public void testDefaultTimeoutMapPurge() throws Exception {
+        5      DefaultTimeoutMap<String, Integer> map = new DefaultTimeoutMap<>(executor, 100);
+        6      map.start();
+        7      assertTrue(map.currentTime() > 0);
+        8      assertEquals(0, map.size());
+        9      map.put("A", 123, 50);
+        10     assertEquals(1, map.size());
+        11  
+        12      await().atMost(Duration.ofSeconds(2))
+        13              .untilAsserted(() -> assertEquals(0, map.size()));
+        14 
+        15      map.stop();
+        26   }
+        27 }
        ```
      * <b>Prevention 2:</b>  Make the request asynchronous (e.g., mock);
        ``` java
@@ -199,14 +197,14 @@
 * <b>Unknown Test (UT):</b>
      * <b>Prevention 1:</b> Including an assertion in the test method.
        ``` java
-          public class JooqXMLTest extends BaseJooqTest {
-          @Test
-        public void testExecute() {
-               ProducerTemplate producerTemplate = context.createProducerTemplate();
-               Endpoint ep = context.getEndpoint("direct:execute");
-               assertDoesNotThrow(() -> producerTemplate.sendBody(ep, ExchangePattern.InOut, "empty"));
-             }
-        }
+       1 public class JooqXMLTest extends BaseJooqTest {
+       2  @Test
+       3  public void testExecute() {
+       4       ProducerTemplate producerTemplate = context.createProducerTemplate();
+       5       Endpoint ep = context.getEndpoint("direct:execute");
+       6       assertDoesNotThrow(() -> producerTemplate.sendBody(ep, ExchangePattern.InOut, "empty"));
+       7      }
+       8 }
        ```
      * <b>Prevention 2:</b> Removing this test method depending on its purpose (or lack of purpose).
 
