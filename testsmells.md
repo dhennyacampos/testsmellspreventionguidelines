@@ -17,9 +17,25 @@
     * <b>Detection:</b> A test method that contains multiple assertion statements without an argument as a parameter.
     * <b>Exemplo:</b> Listing 1 presents a test method containing AR (line 14). The example presents a method of test class AuthenticationTests of the hsweb-framework.
 
-  <p align="center">
- <img width="500px" src="listingAR.png" align="center" alt=""/>
-  </p>
+``` java
+public class AuthenticationTests {
+
+    @Test
+    public void testInitUserRoleAndPermission() {
+        Authentication authentication = builder.user( {\"id\":\"admin\",\"username\":\"admin\",\"name\":\"Administrator\",\"userType\":\"default\"}")	
+                .role("[{\"id\":\"admin-role\",\"name\":\"admin\"}]")                
+                .permission("[{\"id\":\"user-manager\",\"actions\":[\"query\",\"get\",\"update\"]" +
+                        ",\"dataAccesses\":[{\"action\":\"query\",\"field\":\"test\",\"fields\":
+                        [\"1\",\"2\",\"3\"],\"scopeType\":\"CUSTOM_SCOPE\",\"type\":\"DENY_FIELDS\"}]}]")
+                .build();
+                
+        //test user
+        assertEquals(authentication.getUser().getId(), "admin");	
+        assertEquals(authentication.getUser().getUsername(), "admin");
+        assertEquals(authentication.getUser().getName(), "Administrator");
+        assertEquals(authentication.getUser().getUserType(), "default");
+ }
+```
 
 * <b>Conditional Logic Test (CTL):</b>
   It occurs test methods contain conditional logic statements (e.g., if-else, while, for). The presence of conditions in test methods can
