@@ -154,32 +154,59 @@
        ```
 
 * <b>Resource Optimism (RO):</b>
-     * <b>Prevention 1:</b>
+     * <b>Prevention 1:</b> Using abstractions for the resource (e.g., mock).
        ``` java
        ```
-    * <b>Prevention 2:</b>
+    * <b>Prevention 2:</b> Creating the resource using the setup method.
        ``` java
        ```
-     * <b>Prevention 3:</b>
+     * <b>Prevention 3:</b> Using JUnit resources to handle temporary files.
        ``` java
        ```
-* <b>Sleepy Test (ST):</b>
-     * <b>Prevention 1:</b>
+    * <b>Prevention 4:</b> Splitting into more tests to verify a possible exception launch.
        ``` java
        ```
-     * <b>Prevention 2:</b>
+* <b>Sleepy Test (ST):</b> 
+     * <b>Prevention 1:</b> Using an intelligent waiting library (e.g., Awaitility)
+       ``` java
+        public class DefaultTimeoutMapTest {
+ 
+        @Test
+        public void testDefaultTimeoutMapPurge() throws Exception {
+              DefaultTimeoutMap<String, Integer> map = new DefaultTimeoutMap<>(executor, 100);
+              map.start();
+              assertTrue(map.currentTime() > 0);
+              assertEquals(0, map.size());
+              map.put("A", 123, 50);
+              assertEquals(1, map.size());
+      
+              await().atMost(Duration.ofSeconds(2))
+                      .untilAsserted(() -> assertEquals(0, map.size()));
+      
+              map.stop();
+           }
+        }
+       ```
+     * <b>Prevention 2:</b>  Make the request asynchronous (e.g., mock);
        ``` java
        ```
-    * <b>Prevention 3:</b>
+    * <b>Prevention 3:</b> Separate it in a method with a test step in a more indicative place.
+       ``` java
+       ```
+    * <b>Prevention 4:</b> Ordering the tests’ execution, adding tests containing thread.Sleep command at the end of the test suite.
        ``` java
        ```
 * <b>Unknown Test (UT):</b>
-     * <b>Prevention 1:</b>
+     * <b>Prevention 1:</b> Including an assertion in the test method.
        ``` java
+          public class JooqXMLTest extends BaseJooqTest {
+          @Test
+        public void testExecute() {
+               ProducerTemplate producerTemplate = context.createProducerTemplate();
+               Endpoint ep = context.getEndpoint("direct:execute");
+               assertDoesNotThrow(() -> producerTemplate.sendBody(ep, ExchangePattern.InOut, "empty"));
+             }
+        }
        ```
-     * <b>Prevention 2:</b>
-       ``` java
-       ```
-     * <b>Prevention 3:</b>
-       ``` java
-       ```
+     * <b>Prevention 2:</b> Removing this test method depending on its purpose (or lack of purpose).
+
