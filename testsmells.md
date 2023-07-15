@@ -102,23 +102,23 @@
     * <b>Detection:</b> Test method contains an instance of a File class without calling the methods exists(), isFile(), or noExists() methods of the object.
     * <b>Exemplo:</b> Listing 4 presents a test method containing RO (Lines from 2 to 15). The example presents a method of test class FileUtilsTest from the fresco project.
       
-       
   ``` java
-  1 public class FileUtilsTest {	
+  1 public class LocalFileConfigRepositoryTest {	
   2  @Test	
-  3  public void testRenameSuccessful() {
-  4  	File sourceFile = mock(File.class);
-  5  	File targetFile = mock(File.class);
-  6
-  7 	 when(sourceFile.renameTo(targetFile)).thenReturn(true);
-  8
-  9  	try {
-  10        FileUtils.rename(sourceFile, targetFile);
-  11    } catch (FileUtils.RenameException re) {
-  12      fail();
-  13    }	
-  14  }
-  15 }
+  3  public void testLoadConfigWithLocalFileAndFallbackRepo() throws Exception {
+  4    File file = new File(someBaseDir, assembleLocalCacheFileName());
+  5 
+  6     String someValue = "someValue";
+  7 
+  8     Files.write(defaultKey + "=" + someValue, file, Charsets.UTF_8);
+  9 
+  10    LocalFileConfigRepository localRepo = new LocalFileConfigRepository(someNamespace, upstreamRepo);
+  11    localRepo.setLocalCacheDir(someBaseDir, true);
+  12 
+  13    Properties properties = localRepo.getConfig();
+  14 
+  15    assertEquals(defaultValue, properties.getProperty(defaultKey));
+  16  }
   ```
   
 * <b>Sleepy Test (ST):</b>
