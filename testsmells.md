@@ -15,7 +15,7 @@
   It occurs when multiple assertion statements are present in a test method without any explanation or parameter in the assertion
    method, it can cause confusion and make it difficult to identify which assertion has failed if the test fails (Van Deursen et. al, 2001).
     * <b>Detection:</b> A test method that contains multiple assertion statements without an argument as a parameter.
-    * <b>Exemplo:</b> Listing 1 presents a test method containing AR (lines from 13 to 16). The example presents a method of test class AuthenticationTests of the [hsweb-framework](https://github.com/hs-web/hsweb-framework.git).
+    * <b>Exemplo:</b> Listing 1 presents a test method containing AR (lines from 13 to 16). The example presents a method of test class AuthenticationTests of the [hsweb-framework](https://github.com/hs-web/hsweb-framework.git) project.
 
 ```java
 1  public class AuthenticationTests {
