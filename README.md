@@ -23,7 +23,9 @@
 <p align="center">
  <h2>Test code </h2>
 </p>
-If your <b> test code</b> contains any of the following structures, your test case may contain <b>"test smells"</b>.
+To ensure that the test cases are of the highest quality, it is essential to check whether our test code contains structures that may negatively affect the 
+effectiveness of our tests. The following structures can be harmful to test code and may be indicators of the presence of <b>"test smells"</b>.
+
 
 * A test method that contains multiple assertion statements without an argument as a parameter;
 * A test method that contains one or more control statements, i.e, if, switch, conditional expression, for, foreach, or while statements;
