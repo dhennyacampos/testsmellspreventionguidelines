@@ -15,7 +15,7 @@
   It occurs when multiple assertion statements are present in a test method without any explanation or parameter in the assertion
    method, it can cause confusion and make it difficult to identify which assertion has failed if the test fails (Van Deursen et. al, 2001).
     * <b>Detection:</b> A test method that contains multiple assertion statements without an argument as a parameter.
-    * <b>Exemplo:</b> Listing 1 presents a test method containing AR (lines from 13 to 16). The example presents a method of test class AuthenticationTests of the hsweb-framework.
+    * <b>Exemplo:</b> Listing 1 presents a test method containing AR (lines from 13 to 16). The example presents a method of test class AuthenticationTests of the [hsweb-framework](https://github.com/hs-web/hsweb-framework.git).
 
 ```java
 1  public class AuthenticationTests {
@@ -73,7 +73,7 @@
   It occurs when a test method checks the same assertion more than once in the same method but with different values.
   When a test method has multiple assertions that are repeated, it can make the purpose of the method harder to comprehend PERUMA, 2018).
     * <b>Detection:</b> In the test method, there is more than one assertion statement with the same parameters.
-    * <b>Exemplo:</b>  Listing 3 presents a test method containing DA (lines from 9 to 13). The example presents a method of test class HashMapTwoFactorTokenManagerTest from the hsweb-framework project.
+    * <b>Exemplo:</b>  Listing 3 presents a test method containing DA (lines from 9 to 13). The example presents a method of test class HashMapTwoFactorTokenManagerTest from the[hsweb-framework](https://github.com/hs-web/hsweb-framework.git) project.
 
   ``` java
   1 public class HashMapTwoFactorTokenManagerTest {
@@ -100,8 +100,8 @@
   that relies on external resources like directories or database tables. Assuming that these resources exist or are in a certain state can
   lead to unpredictable results in your tests (Van Deursen et. al, 2001).
     * <b>Detection:</b> Test method contains an instance of a File class without calling the methods exists(), isFile(), or noExists() methods of the object.
-    * <b>Exemplo:</b> Listing 4 presents a test method containing RO (Lines from 2 to 15). The example presents a method of test class FileUtilsTest from the fresco project.
-      
+    * <b>Exemplo:</b> Listing 4 presents a test method containing RO (Lines from 2 to 15). The example presents a method of test class FileUtilsTest from the [fresco]( https://github.com/facebook/fresco.git) project.
+     
   ``` java
   1 public class LocalFileConfigRepositoryTest {	
   2  @Test	
@@ -125,7 +125,7 @@
   It occurs when the test method pauses for a certain period by simulating or waiting for an external event (using Thread.sleep()),
   and then continues execution usually (PERUMA et. al, 2018).
     * <b>Detection:</b> A test method that invokes the \textit{Thread.sleep()} method.
-    * <b>Exemplo:</b> Listing 5 presents a test method containing ST (line 12). The example presents a method of test class DefaultTimeoutMapTest from the pache/camel project.
+    * <b>Exemplo:</b> Listing 5 presents a test method containing ST (line 12). The example presents a method of test class DefaultTimeoutMapTest from the [pache/camel](https://github.com/apache/camel.git) project.
       
   ``` java
   1 public class DefaultTimeoutMapTest {
@@ -157,7 +157,7 @@
   It occurs when the test method that does not contain assertion. An assertion statement describes an expected condition
   for a test method (PERUMA et. al, 2018).
     * <b>Detection:</b>  A test method does not contain a single assertion statement and \textbf{@Test} (expected) annotation parameter.
-    * <b>Exemplo:</b> Listing 6 presents a test method containing UT (lines from 2 to 15). The example presents a method of test class RedisUserTokenManagerTest from the hsweb-framework project.
+    * <b>Exemplo:</b> Listing 6 presents a test method containing UT (lines from 2 to 15). The example presents a method of test class RedisUserTokenManagerTest from the [hsweb-framework](https://github.com/hs-web/hsweb-framework.git) project.
       
   ``` java
   1 public class JooqXMLTest extends BaseJooqTest {
