@@ -43,7 +43,7 @@
   alter the test's behavior and expected outcomes. Consequently, this can create scenarios in which the tests fail to uncover defects in
   the production method (PERUMA et. al, 2018).
      * <b>Detection:</b> A test method that contains one or more control statements, i.e., if, switch, conditional expression, for, foreach, or while statements.
-     * <b>Exemplo:</b> Listing 2 presents a test method containing CTL (lines from 8 to 10, and 12 to 15). The example presents a method of test class FastBeanCopierTest from the hsweb-framework project.
+     * <b>Exemplo:</b> Listing 2 presents a test method containing CTL (lines from 8 to 10, and 12 to 15). The example presents a method of test class FastBeanCopierTest from the [hsweb-framework](https://github.com/hs-web/hsweb-framework.git) project.
 
   ``` java
   1 public class FastBeanCopierTest {	
