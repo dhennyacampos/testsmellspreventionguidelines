@@ -73,7 +73,7 @@
   It occurs when a test method checks the same assertion more than once in the same method but with different values.
   When a test method has multiple assertions that are repeated, it can make the purpose of the method harder to comprehend PERUMA, 2018).
     * <b>Detection:</b> In the test method, there is more than one assertion statement with the same parameters.
-    * <b>Exemplo:</b>  Listing 3 presents a test method containing DA (lines from 9 to 13). The example presents a method of test class HashMapTwoFactorTokenManagerTest from the[hsweb-framework](https://github.com/hs-web/hsweb-framework.git) project.
+    * <b>Exemplo:</b>  Listing 3 presents a test method containing DA (lines from 9 to 13). The example presents a method of test class HashMapTwoFactorTokenManagerTest from the [hsweb-framework](https://github.com/hs-web/hsweb-framework.git) project.
 
   ``` java
   1 public class HashMapTwoFactorTokenManagerTest {
