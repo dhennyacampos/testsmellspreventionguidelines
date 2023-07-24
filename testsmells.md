@@ -46,17 +46,35 @@
      * <b>Exemplo:</b> Listing 2 presents a test method containing CTL (lines from 8 to 10, and 12 to 15). The example presents a method of test class FastBeanCopierTest from the [lottie-android](https://github.com/airbnb/lottie-android) project, .
 
 ``` java
-11 public class MeanCalculatorTest {
-...
-38   @Test
-39   public void testMeanWithTwentyNumbers() {
-40     for (int i = 1; i <= 20; i++) {
-41       meanCalculator.add(i);
-42     }
-43     assertThat(meanCalculator.getMean(), equalTo(10.5f));
-44   }
-...
-61 }
+1  public class CounterStorageTest {
+2  @Test
+3 	public void testDeleteObsoleteCounterFiles() throws IOException {
+4 		final Counter counter = new Counter("http", null);
+5 		counter.setApplication("test counter");
+6 		final File storageDir = Parameters.getStorageDirectory(counter.getApplication());
+7 		final File obsoleteFile = new File(storageDir, "obsolete.ser.gz");
+8 		final File notObsoleteFile = new File(storageDir, "notobsolete.ser.gz");
+9 		checkSetup(storageDir, obsoleteFile, notObsoleteFile);
+10		final Calendar nowMinus1YearAnd2Days = Calendar.getInstance();
+11		nowMinus1YearAnd2Days.add(Calendar.YEAR, -1);
+12		nowMinus1YearAnd2Days.add(Calendar.DAY_OF_YEAR, -2);
+13		if (!obsoleteFile.setLastModified(nowMinus1YearAnd2Days.getTimeInMillis())) {
+14			fail("setLastModified");
+15		}
+16
+17		CounterStorage.deleteObsoleteCounterFiles(counter.getApplication());
+18
+19		// le fichier doit avoir été supprimé
+20		if (obsoleteFile.exists()) {
+21			fail("obsolete file still exists");
+22		}
+23		if (!notObsoleteFile.delete()) {
+24			notObsoleteFile.deleteOnExit();
+25		}
+26
+27		Utils.setProperty(Parameter.OBSOLETE_STATS_DAYS, "1");
+28		CounterStorage.deleteObsoleteCounterFiles(counter.getApplication());
+29	}
 ```
 
  
