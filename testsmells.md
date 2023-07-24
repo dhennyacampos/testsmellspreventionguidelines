@@ -109,7 +109,7 @@
   that relies on external resources like directories or database tables. Assuming that these resources exist or are in a certain state can
   lead to unpredictable results in your tests (Van Deursen et. al, 2001).
     * <b>Detection:</b> Test method contains an instance of a File class without calling the methods exists(), isFile(), or noExists() methods of the object.
-    * <b>Exemple:</b> Listing 4 presents a test method containing RO (Lines from 2 to 15). The example presents a method of test class FileUtilsTest from the [fresco]( https://github.com/facebook/fresco.git) project.
+    * <b>Exemple:</b> Listing 4 presents a test method containing RO (Lines from 2 to 15). The example presents a method of test class FileUtilsTest from the [apollo](https://github.com/apolloconfig/apollo) project.
      
   ``` java
   1 public class LocalFileConfigRepositoryTest {	
