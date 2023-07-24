@@ -8,7 +8,7 @@
 
 * <b>Assertion Roulette (AR):</b>
      * <b>Prevention 1:</b> Splitting into several methods into others to avoid multiple assertions within the same test method.
-     * <b>Exemplo:</b>
+     * <b>Exemple:</b>
        
        ``` java
        1 package storage;
@@ -58,7 +58,7 @@
        44 } 
        ```
      * <b>Prevention 2:</b> Including the explanation parameter.
-     * <b>Exemplo:</b>
+     * <b>Exemple:</b>
        
        ``` java
        1 package storage;
@@ -83,7 +83,7 @@
        20 }
        ```
      * <b>Prevention 3:</b> Put the setup into a specific method.
-     * <b>Exemplo:</b>
+     * <b>Exemple:</b>
        
        ``` java
         1 package storage;
@@ -123,7 +123,7 @@
        ```
 * <b>Conditional Logic Test (CTL):</b>
      * <b>Prevention 1:</b> Splitting the method into more methods to reach the conditional structures.
-     * <b>Exemplo:</b>
+     * <b>Exemple:</b>
        
 ``` java
 1  public class CounterStorageTest {
@@ -170,7 +170,7 @@
 ```
 
  * <b>Prevention 2:</b> Abstraction of the content of the conditional structure in an auxiliary method.
- * <b>Exemplo:</b> 
+ * <b>Exemple:</b> 
 
 ``` java
 1  public class CounterStorageTest {
@@ -219,7 +219,7 @@
 
 * <b>Duplicate Assert (DA):</b>
  * <b>Prevention 1:</b> Dividing the original method into more test methods for each new value that the variable assumes.
- * <b>Exemplo:</b>
+ * <b>Exemple:</b>
        
        ``` java
        1 public class HashMapTwoFactorTokenManagerTest {
@@ -250,28 +250,28 @@
 
 * <b>Resource Optimism (RO):</b>
      * <b>Prevention 1:</b> Using abstractions for the resource (e.g., mock).
-     * <b>Exemplo:</b>
+     * <b>Exemple:</b>
        
        ``` java
        ```
     * <b>Prevention 2:</b> Creating the resource using the setup method.
-    * <b>Exemplo:</b>
+    * <b>Exemple:</b>
       
        ``` java
        ```
      * <b>Prevention 3:</b> Using JUnit resources to handle temporary files.
-     * <b>Exemplo:</b>
+     * <b>Exemple:</b>
        
        ``` java
        ```
     * <b>Prevention 4:</b> Splitting into more tests to verify a possible exception launch.
-    * <b>Exemplo:</b>
+    * <b>Exemple:</b>
       
        ``` java
        ```
 * <b>Sleepy Test (ST):</b> 
      * <b>Prevention 1:</b> Using an intelligent waiting library (e.g., Awaitility)
-     * <b>Exemplo:</b>
+     * <b>Exemple:</b>
        
        ``` java
         1 public class DefaultTimeoutMapTest {
@@ -293,23 +293,23 @@
         27 }
        ```
      * <b>Prevention 2:</b>  Make the request asynchronous (e.g., mock);
-     * <b>Exemplo:</b>
+     * <b>Exemple:</b>
        
        ``` java
        ```
     * <b>Prevention 3:</b> Separate it in a method with a test step in a more indicative place.
-    * <b>Exemplo:</b>
+    * <b>Exemple:</b>
       
        ``` java
        ```
     * <b>Prevention 4:</b> Ordering the tests’ execution, adding tests containing thread.Sleep command at the end of the test suite.
-    * <b>Exemplo:</b>
+    * <b>Exemple:</b>
       
        ``` java
        ```
 * <b>Unknown Test (UT):</b>
      * <b>Prevention 1:</b> Including an assertion in the test method.
-     * <b>Exemplo:</b>
+     * <b>Exemple:</b>
        
        ``` java
        1 public class JooqXMLTest extends BaseJooqTest {
