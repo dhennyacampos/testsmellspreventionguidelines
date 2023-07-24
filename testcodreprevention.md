@@ -125,8 +125,49 @@
      * <b>Prevention 1:</b> Splitting the method into more methods to reach the conditional structures.
      * <b>Exemplo:</b>
        
-       ``` java
-       ```
+``` java
+1  public class CounterStorageTest {
+2     @Test
+3     public void testDeleteObsoleteCounterFiles() throws IOException {
+4         final Counter counter = new Counter("http", null);
+5         counter.setApplication("test counter");
+6         final File storageDir = Parameters.getStorageDirectory(counter.getApplication());
+7         final File obsoleteFile = new File(storageDir, "obsolete.ser.gz");
+8         final File notObsoleteFile = new File(storageDir, "notobsolete.ser.gz");
+9         checkSetup(storageDir, obsoleteFile, notObsoleteFile); \\ setup logic
+10
+11         setLastModified(obsoleteFile); \\ ensure that the obsoleteFile has a modified timestamp
+12
+13         CounterStorage.deleteObsoleteCounterFiles(counter.getApplication());
+14
+15         assertObsoleteFileIsDeleted(obsoleteFile);
+16         assertNotObsoleteFileIsDeleted(notObsoleteFile);
+17
+18         Utils.setProperty(Parameter.OBSOLETE_STATS_DAYS, "1");
+19         CounterStorage.deleteObsoleteCounterFiles(counter.getApplication());
+20    }
+21
+22    @Test
+23    private void setLastModified(File file) {
+24         Calendar nowMinus1YearAnd2Days = Calendar.getInstance();
+25         nowMinus1YearAnd2Days.add(Calendar.YEAR, -1);
+26         nowMinus1YearAnd2Days.add(Calendar.DAY_OF_YEAR, -2);
+27
+28         assertThrows("Failed to set last modified timestamp",
+29               () -> file.setLastModified(nowMinus1YearAnd2Days.getTimeInMillis()));
+30    }
+31
+32    @Test
+33    private void assertObsoleteFileIsDeleted(File obsoleteFile) {
+34          Assert.assertFalse("Obsolete file still exists", obsoleteFile.exists());
+35    }
+36
+37    @Test
+38    private void assertNotObsoleteFileIsDeleted(File notObsoleteFile) {
+39         Assert.assertTrue("Not obsolete file was not deleted", notObsoleteFile.delete());
+40    }
+41 }
+```
      * <b>Prevention 2:</b> Abstraction of the content of the conditional structure in an auxiliary method.
      * <b>Exemplo:</b> 
        ``` java
