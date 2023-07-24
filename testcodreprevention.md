@@ -168,13 +168,58 @@
 40    }
 41 }
 ```
-     * <b>Prevention 2:</b> Abstraction of the content of the conditional structure in an auxiliary method.
-     * <b>Exemplo:</b> 
-       ``` java
-       ```
+
+ * <b>Prevention 2:</b> Abstraction of the content of the conditional structure in an auxiliary method.
+ * <b>Exemplo:</b> 
+
+``` java
+1  public class CounterStorageTest {
+2
+3     @Test
+4     public void testDeleteObsoleteCounterFiles() throws IOException {
+5         final Counter counter = new Counter("http", null);
+6         counter.setApplication("test counter");
+7         final File storageDir = Parameters.getStorageDirectory(counter.getApplication());
+8         final File obsoleteFile = new File(storageDir, "obsolete.ser.gz");
+9         final File notObsoleteFile = new File(storageDir, "notobsolete.ser.gz");
+10        checkSetup(storageDir, obsoleteFile, notObsoleteFile);
+11
+12        assertThrows("Failed to set last modified timestamp",
+29               () -> setLastModified(obsoleteFile));
+30
+31        CounterStorage.deleteObsoleteCounterFiles(counter.getApplication());
+32
+33        // Assertions
+34        assertThat("Obsolete file was not deleted", assertObsoleteFileIsDeleted(obsoleteFile), equalTo(true));
+35        assertThat("Not obsolete file was not deleted", assertNotObsoleteFileIsDeleted(notObsoleteFile), equalTo(true));
+36
+37        Utils.setProperty(Parameter.OBSOLETE_STATS_DAYS, "1");
+38        CounterStorage.deleteObsoleteCounterFiles(counter.getApplication());
+39
+40    }
+41
+42    private void setLastModified(File file) {
+43        Calendar nowMinus1YearAnd2Days = Calendar.getInstance();
+44        nowMinus1YearAnd2Days.add(Calendar.YEAR, -1);
+45        nowMinus1YearAnd2Days.add(Calendar.DAY_OF_YEAR, -2);
+46
+47        return !file.setLastModified(nowMinus1YearAnd2Days.getTimeInMillis());
+48    }
+49
+50    private boolean assertObsoleteFileIsDeleted(File obsoleteFile) {
+51        return !obsoleteFile.exists();
+52    }
+53
+54    private boolean assertNotObsoleteFileIsDeleted(File notObsoleteFile) {
+55        return notObsoleteFile.delete();
+56    }
+57
+58 }
+```
+
 * <b>Duplicate Assert (DA):</b>
-     * <b>Prevention 1:</b> Dividing the original method into more test methods for each new value that the variable assumes.
-     * <b>Exemplo:</b>
+ * <b>Prevention 1:</b> Dividing the original method into more test methods for each new value that the variable assumes.
+ * <b>Exemplo:</b>
        
        ``` java
        1 public class HashMapTwoFactorTokenManagerTest {
