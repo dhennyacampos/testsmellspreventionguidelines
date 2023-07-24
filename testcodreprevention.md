@@ -182,7 +182,7 @@
 7         final File storageDir = Parameters.getStorageDirectory(counter.getApplication());
 8         final File obsoleteFile = new File(storageDir, "obsolete.ser.gz");
 9         final File notObsoleteFile = new File(storageDir, "notobsolete.ser.gz");
-10        checkSetup(storageDir, obsoleteFile, notObsoleteFile);
+10        checkSetup(storageDir, obsoleteFile, notObsoleteFile); \\ setup logic
 11
 12        assertThrows("Failed to set last modified timestamp",
 29               () -> setLastModified(obsoleteFile));
