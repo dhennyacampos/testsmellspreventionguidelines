@@ -43,30 +43,21 @@
   alter the test's behavior and expected outcomes. Consequently, this can create scenarios in which the tests fail to uncover defects in
   the production method (PERUMA et. al, 2018).
      * <b>Detection:</b> A test method that contains one or more control statements, i.e., if, switch, conditional expression, for, foreach, or while statements.
-     * <b>Exemplo:</b> Listing 2 presents a test method containing CTL (lines from 8 to 10, and 12 to 15). The example presents a method of test class FastBeanCopierTest from the [hsweb-framework](https://github.com/hs-web/hsweb-framework.git) project.
+     * <b>Exemplo:</b> Listing 2 presents a test method containing CTL (lines from 8 to 10, and 12 to 15). The example presents a method of test class FastBeanCopierTest from the [lottie-android](https://github.com/airbnb/lottie-android) project, .
 
-  ``` java
-  1 public class FastBeanCopierTest {	
-  2   @Test
-  3   public void testProxy() {
-  4      AtomicReference<Object> reference=new AtomicReference<>();
-  5	
-  6     ProxyTest test = (ProxyTest) Proxy.newProxyInstance(ClassLoader.getSystemClassLoader(),
-  7             new Class[]{ProxyTest.class}, (proxy, method, args) -> {
-  8                  if (method.getName().equals("getName")) {
-  9                      return "test";
-  10                  }
-  11
-  12                  if (method.getName().equals("setName")) {
-  13                      reference.set(args[0]);
-  14                      return null;
-  15                  }
-  16
-  17                  return null;
-  18              });
-  19  }
-  20 }           
-  ```
+``` java
+11 public class MeanCalculatorTest {
+...
+38   @Test
+39   public void testMeanWithTwentyNumbers() {
+40     for (int i = 1; i <= 20; i++) {
+41       meanCalculator.add(i);
+42     }
+43     assertThat(meanCalculator.getMean(), equalTo(10.5f));
+44   }
+...
+61 }
+```
 
  
 * <b>Duplicate Assert (DA):</b>
