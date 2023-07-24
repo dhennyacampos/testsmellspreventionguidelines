@@ -43,38 +43,38 @@
   alter the test's behavior and expected outcomes. Consequently, this can create scenarios in which the tests fail to uncover defects in
   the production method (PERUMA et. al, 2018).
      * <b>Detection:</b> A test method that contains one or more control statements, i.e., if, switch, conditional expression, for, foreach, or while statements.
-     * <b>Exemple:</b> Listing 2 presents a test method containing CTL (lines from 8 to 10, and 12 to 15). The example presents a method of test class FastBeanCopierTest from the [lottie-android](https://github.com/airbnb/lottie-android) project, .
+     * <b>Exemple:</b> Listing 2 presents a test method containing CTL (lines from 8 to 10, and 12 to 15). The example presents a method of test class FastBeanCopierTest from the [javamelody](https://github.com/javamelody/javamelody) project.
 
 ``` java
-1  public class CounterStorageTest {
+1  public class TestCounterStorage {
 2  @Test
-3 	public void testDeleteObsoleteCounterFiles() throws IOException {
-4 		final Counter counter = new Counter("http", null);
-5 		counter.setApplication("test counter");
-6 		final File storageDir = Parameters.getStorageDirectory(counter.getApplication());
-7 		final File obsoleteFile = new File(storageDir, "obsolete.ser.gz");
-8 		final File notObsoleteFile = new File(storageDir, "notobsolete.ser.gz");
-9 		checkSetup(storageDir, obsoleteFile, notObsoleteFile);
-10		final Calendar nowMinus1YearAnd2Days = Calendar.getInstance();
-11		nowMinus1YearAnd2Days.add(Calendar.YEAR, -1);
-12		nowMinus1YearAnd2Days.add(Calendar.DAY_OF_YEAR, -2);
-13		if (!obsoleteFile.setLastModified(nowMinus1YearAnd2Days.getTimeInMillis())) {
-14			fail("setLastModified");
-15		}
+3  public void testDeleteObsoleteCounterFiles() throws IOException {
+4 	 final Counter counter = new Counter("http", null);
+5 	 counter.setApplication("test counter");
+6 	 final File storageDir = Parameters.getStorageDirectory(counter.getApplication());
+7 	 final File obsoleteFile = new File(storageDir, "obsolete.ser.gz");
+8 	 final File notObsoleteFile = new File(storageDir, "notobsolete.ser.gz");
+9 	 checkSetup(storageDir, obsoleteFile, notObsoleteFile); \\ setup logic
+10	 final Calendar nowMinus1YearAnd2Days = Calendar.getInstance();
+11	 nowMinus1YearAnd2Days.add(Calendar.YEAR, -1);
+12	 nowMinus1YearAnd2Days.add(Calendar.DAY_OF_YEAR, -2);
+13	 if (!obsoleteFile.setLastModified(nowMinus1YearAnd2Days.getTimeInMillis())) {
+14	 	fail("setLastModified");
+15	 }
 16
-17		CounterStorage.deleteObsoleteCounterFiles(counter.getApplication());
+17	 CounterStorage.deleteObsoleteCounterFiles(counter.getApplication());
 18
-19		// le fichier doit avoir été supprimé
-20		if (obsoleteFile.exists()) {
-21			fail("obsolete file still exists");
-22		}
-23		if (!notObsoleteFile.delete()) {
-24			notObsoleteFile.deleteOnExit();
-25		}
+19	 // le fichier doit avoir été supprimé
+20	 if (obsoleteFile.exists()) {
+21	 	fail("obsolete file still exists");
+22	 }
+23	 if (!notObsoleteFile.delete()) {
+24	 	notObsoleteFile.deleteOnExit();
+25	 }
 26
-27		Utils.setProperty(Parameter.OBSOLETE_STATS_DAYS, "1");
-28		CounterStorage.deleteObsoleteCounterFiles(counter.getApplication());
-29	}
+27	 Utils.setProperty(Parameter.OBSOLETE_STATS_DAYS, "1");
+28	 CounterStorage.deleteObsoleteCounterFiles(counter.getApplication());
+29 }
 ```
 
  
