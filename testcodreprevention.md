@@ -253,23 +253,74 @@
      * <b>Exemple:</b>
        
        ``` java
-
+         1 public class LocalFileConfigRepositoryTest {
+         2
+         3 @Test	
+         4 public void testLoadConfigWithLocalFileAndFallbackRepo() throws Exception {
+         5   File file = new File(someBaseDir, assembleLocalCacheFileName());
+         6
+         7   String someValue = "someValue";
+         8
+         9   Files.write(defaultKey + "=" + someValue, file, Charsets.UTF_8);
+         10 
+         11  LocalFileConfigRepository localRepo = mockito.spy(new LocalFileConfigRepository(someNamespace, upstreamRepo));
+         12  localRepo.setLocalCacheDir(someBaseDir, true);
+         13
+         14   Properties properties = localRepo.getConfig();
+         15
+         16   assertEquals(defaultValue, properties.getProperty(defaultKey));
+         17 }
        ```
     * <b>Prevention 2:</b> Creating the resource using the setup method.
     * <b>Exemple:</b>
       
        ``` java
+        1  public class LocalFileConfigRepositoryTest {
+        2  
+        3   protected void setUp() {
+        4     LocalFileConfigRepository localRepo = mockito.spy(new LocalFileConfigRepository(someNamespace, upstreamRepo));
+        5   }
+        6  
+        7  @Test	
+        8  public void testLoadConfigWithLocalFileAndFallbackRepo() throws Exception {
+        9   File file = new File(someBaseDir, assembleLocalCacheFileName());
+        10      
+        11     String someValue = "someValue";
+        12      
+        13     Files.write(defaultKey + "=" + someValue, file, Charsets.UTF_8);
+        14      
+        15     localRepo.setLocalCacheDir(someBaseDir, true);
+        16      
+        17     Properties properties = localRepo.getConfig();
+        18      
+        19     assertEquals(defaultValue, properties.getProperty(defaultKey));
+        20  }
        ```
      * <b>Prevention 3:</b> Using JUnit resources to handle temporary files.
      * <b>Exemple:</b>
        
        ``` java
+         1 public class LocalFileConfigRepositoryTest {	
+         2
+         3   @TempDir
+         4   File file = new File(someBaseDir, assembleLocalCacheFileName());
+         5  
+         6   @Test	
+         7   public void testLoadConfigWithLocalFileAndFallbackRepo() throws Exception {
+         8       String someValue = "someValue";
+         9   
+         10       Files.write(defaultKey + "=" + someValue, file, Charsets.UTF_8);
+         11   
+         12       LocalFileConfigRepository localRepo = new LocalFileConfigRepository(someNamespace, upstreamRepo);
+         13       localRepo.setLocalCacheDir(someBaseDir, true);
+         14   
+         15       Properties properties = localRepo.getConfig();
+         16   
+         17       assertEquals(defaultValue, properties.getProperty(defaultKey));
+         18  }
+         19 }
        ```
-    * <b>Prevention 4:</b> Splitting into more tests to verify a possible exception launch.
-    * <b>Exemple:</b>
-      
-       ``` java
-       ```
+
 * <b>Sleepy Test (ST):</b> 
      * <b>Prevention 1:</b> Using an intelligent waiting library (e.g., Awaitility)
      * <b>Exemple:</b>
