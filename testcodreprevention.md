@@ -353,6 +353,44 @@
     * <b>Exemple:</b>
       
        ``` java
+         1 public class DefaultTimeoutMapTest {
+         2
+         3   protected void setUp() {
+         4       DefaultTimeoutMap<String, Integer> map = mockito.spy(new DefaultTimeoutMap<>(executor, 100));
+         5    }
+         6
+         7   @Test
+         8   public void mapWithNoElementsTest() throws Exception {
+         9        map.start();
+         10       assertAll(
+         11          () -> assertTrue(map.currentTime() > 0)
+         12          () -> assertEquals(0, map.size())
+         13       )
+         14       map.stop();
+         15   }
+         16
+         17  @Test
+         18  public void mapWithElements() throws Exception {
+         19       map.start();
+         20       map.put("A", 123, 50);
+         21       assertEquals(1, map.size());
+         22       map.stop();
+         23  }
+         24
+         25  @Test
+         26  public void testDefaultTimeoutMapPurge() throws Exception {
+         27       map.start();
+         28       Thread.sleep(250);
+         29       if (map.size() > 0) {
+         30           LOG.warn("Waiting extra due slow CI box");
+         31           Thread.sleep(1000);
+         32       }
+         33
+         34      assertEquals(0, map.size());
+         35
+         36      map.stop();
+         37   }
+         38 }
        ```
     * <b>Prevention 4:</b> Ordering the tests’ execution, adding tests containing thread.Sleep command at the end of the test suite.
     * <b>Exemple:</b>
