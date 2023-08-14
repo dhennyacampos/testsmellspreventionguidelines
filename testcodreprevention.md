@@ -344,11 +344,6 @@
         26   }
         27 }
        ```
-     * <b>Prevention 2:</b>  Make the request asynchronous (e.g., mock);
-     * <b>Exemple:</b>
-       
-       ``` java
-       ```
     * <b>Prevention 3:</b> Separate it in a method with a test step in a more indicative place.
     * <b>Exemple:</b>
       
@@ -391,11 +386,6 @@
          36      map.stop();
          37   }
          38 }
-       ```
-    * <b>Prevention 4:</b> Ordering the tests’ execution, adding tests containing thread.Sleep command at the end of the test suite.
-    * <b>Exemple:</b>
-      
-       ``` java
        ```
 * <b>Unknown Test (UT):</b>
      * <b>Prevention 1:</b> Including an assertion in the test method.
