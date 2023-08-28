@@ -64,7 +64,7 @@ In the following, we will show some structures that will help developers avoid h
 <p align="center">
  <h2> Guideline Evaluation </h2>
 </p>
-<p> ➡ See <a href="guidelineevaluation.md.md" >  guideline evaluation </a> on test smells</p>
+<p> ➡ See <a href="guidelineevaluation.md" >  guideline evaluation </a> on test smells</p>
 
 <p align="center">
  <h2>Contributions 🤝</h2>
