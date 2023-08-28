@@ -64,7 +64,7 @@ In the following, we will show some structures that will help developers avoid h
 <p align="center">
  <h2>tasks </h2>
 </p>
-<p> ➡ See <a href="testcodreprevention.md" >prevention and exemplo </a> of test smells</p>
+<p> ➡ See <a href="task.md" >Task on test smells </a> of test smells</p>
 
 <p align="center">
  <h2>Contributions 🤝</h2>
