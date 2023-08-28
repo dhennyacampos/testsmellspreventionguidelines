@@ -62,6 +62,10 @@ In the following we will show some structures that will help developers avoid ha
 <p> ➡ See <a href="testcodreprevention.md" >prevention and exemplo </a> of test smells</p>
 
 <p align="center">
+ <h2>tasks 🤝</h2>
+</p>
+
+<p align="center">
  <h2>Contributions 🤝</h2>
 </p>
 
