@@ -2,7 +2,7 @@
 
 
 <p align="center">
- <h2>Task Store</h2>
+ <h2>Store Task</h2>
 </p>
 
 ## Production classes description
@@ -124,6 +124,6 @@ Please, use this initial configuration to verify whether the email is sent follo
 > Therefore, the correct way is to use assertions with an explanatory message.
 
 <p align="center">
- <h2>Task Calculator</h2>
+ <h2>Calculator Task</h2>
 </p>
 
