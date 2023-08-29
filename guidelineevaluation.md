@@ -127,3 +127,61 @@ Please, use this initial configuration to verify whether the email is sent follo
  <h2>Calculator Task</h2>
 </p>
 
+## Task #1 - Develop Test Code for the Calculator Class
+
+*Description:*
+Objective: Create test cases to thoroughly test the divide method of the Calculator class to verify the edge values for the division operation.
+
+*Rationale:*
+
+Diagram 5 - xxx ![Diagram #5](Calculator-AllTasks.png)
+
+*Test steps:* Consider the Calculator class provided below:
+
+ ``` java
+public class Calculator {
+    public int divide(int dividend, int divisor) {
+        if (divisor == 0) {
+            throw new IllegalArgumentException("Cannot divide by zero");
+        }
+        return dividend / divisor;
+    }
+}
+```
+
+1. Create a test class named CalculatorTest for the test scenarios:
+2. Division of positive integers (dividend > divisor).
+3. Division of negative integers (dividend < 0, divisor > 0).
+4. Division by zero (divisor == 0)
+
+## Task #2 - Reading from an External Database File
+
+*Description:*
+Objective:  Create test cases for production classes that involve reading data from external files, such as a database.
+
+*Rationale:*
+
+*Test steps:* Consider the DatabaseReader class provided below:
+
+ ``` java
+public class DatabaseReader {
+
+    public String readFromDatabase(String filePath) throws IOException {
+        StringBuilder content = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+        }
+        return content.toString();
+    }
+}
+```
+
+1. Create a test class named DataBaseReaderTest for the test scenarios:
+2. Test the DatabaseReader ability to read data from the external database file
+3. Verify that the content read from the file matches the expected content
+
+
+
