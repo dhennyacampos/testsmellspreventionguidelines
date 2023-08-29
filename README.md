@@ -64,6 +64,7 @@ In the following, we will show some structures that will help developers avoid h
 <p align="center">
  <h2> Guideline evaluation </h2>
 </p>
+
 In this section, we will present two initiatives that will be carried out by the core and peripheral development teams. The purpose of these activities is to confirm the applicability of our guidelines.
 
 <p> ➡ See <a href="guidelineevaluation.md" >  guideline evaluation </a> on test smells</p>
