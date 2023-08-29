@@ -53,7 +53,7 @@ For this study, we will address the 6 most cited test smells in the literature, 
 <p> ➡ See <a href="testsmells.md" >definitions and exemplo </a> of test smells</p>
 
 <p align="center">
- <h2>Test smells prevention Guideline 🧹</h2>
+ <h2>Test smells prevention guideline 🧹</h2>
 </p>
 
 To prevent these kinds of problems known as <b>" test smells"</b> from occurring in test code, it is important to avoid certain scripting structures in the test code. 
@@ -62,7 +62,7 @@ In the following, we will show some structures that will help developers avoid h
 <p> ➡ See <a href="testcodreprevention.md" >prevention and exemplo </a> of test smells</p>
 
 <p align="center">
- <h2> Guideline Evaluation </h2>
+ <h2> Guideline evaluation </h2>
 </p>
 In this section, we will present two initiatives that will be carried out by the core and peripheral development teams. The purpose of these activities is to confirm the applicability of our guidelines.
 
