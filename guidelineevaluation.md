@@ -40,7 +40,7 @@ Our goal is to verify that product categorization within an online store is func
 *Rationale:* The developer has to test the creation of two different categories. The developer can create one test method to test each category separately or test both of them in one test method.
 If the developer decides to create only one test method, then we expect a Duplicate Assert test smell because the same structures are being tested with different values. 
 
-Diagram 1 - Relationship between products, merchant and categories ![Diagram #1](/diagrams/Store-Task1.png)
+Diagram 1 - Relationship between products, merchant and categories ![Diagram #1](Store-Task1.png)
 
 *Test Steps:*
 Please, use the `MerchantStore` object to test the scenarios of creating different category of products for a store. 
@@ -66,7 +66,7 @@ Our goal is to verify that an image can be successfully inserted into a product'
 *Rationale:* The developer has to set a local file into a product. 
 If the developer does not check the existence of the file before using it, he will insert a Resource Optimist test smell.
 
-Diagram 2 - Relationship between products and images ![Diagram #2](/diagrams/Store-Task2.png)
+Diagram 2 - Relationship between products and images ![Diagram #2](Store-Task2.png)
 
 *Test steps:*
 Please, create a test method called `testInsertImage` to insert a local file into a product.
@@ -88,7 +88,7 @@ Our goal is to verify that the product availability decreases as expected after 
 We expect developers to create a condition to check whether it there is enough products to place a new order. 
 In addition, we expect developers to create a loop to simulate the orders. Therefore, the developer may insert two Conditional Test Logic test smells. 
 
-Diagram 3 - Relationship between products and products availability ![Diagram #3](/diagrams/Store-Task3.png)
+Diagram 3 - Relationship between products and products availability ![Diagram #3](Store-Task3.png)
 
 *Test steps:*
 The `ProductAvailabilityTest` class contains two fields that are initialized in the `setup` method. 
@@ -107,7 +107,7 @@ Our goal is to verify that the `notify` method properly sends order confirmation
 *Rationale:* The developer has to use some structure to wait for the order to be sent via email.
 We expect the test method to have a Sleep Test test smell.
 
-Diagram 3 - Relationship between products and products availability ![Diagram #4](/diagrams/Store-Task4.png)
+Diagram 3 - Relationship between products and products availability ![Diagram #4](Store-Task4.png)
 
 *Test steps:*
 The `testNotifyMethod` provides some dummy configuration to call the `notify` production method. 
