@@ -44,34 +44,30 @@
 Diagram #1 presents the relationship between the Product, MerchantStore, Category, and CategoryDescription.
 Our goal is to verify that product categorization within an online store is functioning correctly.
 
-*Rationale:* The developer has to test the creation of two different categories. The developer can create one test method to test each category separately or test both of them in one test method.
-If the developer decides to create only one test method, then we expect a Duplicate Assert test smell because the same structures are being tested with different values. 
-
 Diagram 1 - Relationship between products, merchant and categories ![Diagram #1](Store-Task1.png)
 
 *Test Steps:*
 Please, use the `MerchantStore` object to test the scenarios of creating different category of products for a store. 
-1. A store with one category of products
-   2. Create a `Category` of objects called `book` and set it into the `MerchantStore`
-   2. Create a `Set` of `CategoryDescription` objects and add two books. 
-   3. Insert the `Set` of `CategoryDescription` into book category 
-   4. Insert the `MerchantStore` object into `Product` object; 
-   4. Check the if the number of categories into the object `Product` is equal to 2
-1. Expand the store with another category of products 
-   2. Create a `Category` of objects called `music` and set it into the `MerchantStore`
-   3. Create a `Set` of `CategoryDescription` objects and add two discographies.
-   3. Insert the `Set` of `CategoryDescription` into the music category 
-   4. Insert the `MerchantStore` object into `Product` object
-   4. Check the if the number of categories into the object `Product` is equal to 4
+
+A store with one category of products
+ 1. Create a `Category` of objects called `book` and set it into the `MerchantStore`.
+ 2. Create a `Set` of `CategoryDescription` objects and add two books.
+ 3. Insert the `Set` of `CategoryDescription` into book category
+ 4. Insert the `MerchantStore` object into `Product` object;
+ 5. Ceck the if the number of categories into the object `Product` is equal to 2
+ 
+Expand the store with another category of products
+  1. Create a `Category` of objects called `music` and set it into the `MerchantStore`
+  2. Create a `Set` of `CategoryDescription` objects and add two discographies.
+  3. Insert the `Set` of `CategoryDescription` into the music category
+  4. Insert the `MerchantStore` object into `Product` object
+  5. Check the if the number of categories into the object `Product` is equal to 4
    
 ## Task #2 - Verifying Image Insertion for a Product
 
 *Description:*
 Diagram #2 presents the relationship between the Product and ProductImage.
 Our goal is to verify that an image can be successfully inserted into a product's list of images.
-
-*Rationale:* The developer has to set a local file into a product. 
-If the developer does not check the existence of the file before using it, he will insert a Resource Optimist test smell.
 
 Diagram 2 - Relationship between products and images ![Diagram #2](Store-Task2.png)
 
@@ -91,10 +87,6 @@ Please, create a test method called `testInsertImage` to insert a local file int
 Diagram #3 presents the relationship between the Product and ProductAvailability.
 Our goal is to verify that the product availability decreases as expected after orders are placed.
 
-*Rationale:* The store has 100 items of a product and 5 consumers will order 20 items of it. The developer has to decrease 20 from 100 items until there are not more items to sell.  
-We expect developers to create a condition to check whether it there is enough products to place a new order. 
-In addition, we expect developers to create a loop to simulate the orders. Therefore, the developer may insert two Conditional Test Logic test smells. 
-
 Diagram 3 - Relationship between products and products availability ![Diagram #3](Store-Task3.png)
 
 *Test steps:*
@@ -111,10 +103,7 @@ Note that the store has 100 items available of such products.
 Diagram #4 presents the class `OrderFacadeImpl` to deal with asyncronous events.
 Our goal is to verify that the `notify` method properly sends order confirmation emails to customers and merchants asynchronously.
 
-*Rationale:* The developer has to use some structure to wait for the order to be sent via email.
-We expect the test method to have a Sleep Test test smell.
-
-Diagram 3 - Relationship between products and products availability ![Diagram #4](Store-Task4.png)
+Diagram 4 - Relationship between products and products availability ![Diagram #4](Store-Task4.png)
 
 *Test steps:*
 The `testNotifyMethod` provides some dummy configuration to call the `notify` production method. 
@@ -124,12 +113,7 @@ Please, use this initial configuration to verify whether the email is sent follo
 2. Simulate the asynchronous processing by waiting for 3 seconds.
 3. Verify that the `isEmailSent` method of the `AsyncService` class returns true, indicating that the email was sent.
 
-
-> Note that the Assertion Roulette and Unknown Test test smells can occur in any of the tasks but they cannot occur in the same task. 
-> If the developer uses two assertions without explanation messages, it will result in an Assertion Roulette test smell.
-> If the developer does not use assertions, it will result in an Unknown Test test smell.
-> Therefore, the correct way is to use assertions with an explanatory message.
-
+ 
 <p align="center">
  <h2>Calculator Task</h2>
 </p>
@@ -139,56 +123,22 @@ Please, use this initial configuration to verify whether the email is sent follo
 *Description:*
 Objective: Create test cases to thoroughly test the divide method of the Calculator class to verify the edge values for the division operation.
 
-*Rationale:*
+Diagram 5 - Relationship between the class MathOperations and IOHandler ![Diagram #5](Calculator-AllTasks.png)
 
-Diagram 5 - xxx ![Diagram #5](Calculator-AllTasks.png)
+*Test steps:* Considering the class MathOperations, create a test class named MathOperationsTest for the scenarios:
 
-*Test steps:* Consider the Calculator class provided below:
-
- ``` java
-public class Calculator {
-    public int divide(int dividend, int divisor) {
-        if (divisor == 0) {
-            throw new IllegalArgumentException("Cannot divide by zero");
-        }
-        return dividend / divisor;
-    }
-}
-```
-
-1. Create a test class named CalculatorTest for the test scenarios:
-2. Division of positive integers (dividend > divisor).
-3. Division of negative integers (dividend < 0, divisor > 0).
-4. Division by zero (divisor == 0)
+1. Division of positive integers (dividend > divisor).
+2. Division of negative integers (dividend < 0, divisor > 0).
+3. Division by zero (divisor == 0)
 
 ## Task #2 - Reading from an External Database File
 
 *Description:*
 Objective:  Create test cases for production classes that involve reading data from external files, such as a database.
 
-*Rationale:*
-
-*Test steps:* Consider the DatabaseReader class provided below:
-
- ``` java
-public class DatabaseReader {
-
-    public String readFromDatabase(String filePath) throws IOException {
-        StringBuilder content = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                content.append(line).append("\n");
-            }
-        }
-        return content.toString();
-    }
-}
-```
-
-1. Create a test class named DataBaseReaderTest for the test scenarios:
-2. Test the DatabaseReader ability to read data from the external database file
-3. Verify that the content read from the file matches the expected content
+*Test steps:* Considering the IOHandler class, please create a IOHandlerTest class to verify the scenarios:
+1. Test the IOHandler ability to read data from the external database file
+3. Verify that the content read from the file matches the expected format `operand operator operand`, e.g., `1 + 5`
 
 
 
