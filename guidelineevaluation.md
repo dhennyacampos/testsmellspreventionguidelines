@@ -7,6 +7,8 @@
 
 ## Production classes description
 
+**Please, refer to [Calculator folder](https://github.com/dhennyacampos/testsmellspreventionguidelines/tree/main/code/Calculator) to access the production code.**
+
 **1) MathOperations:**
 * MathOperations is the production class responsible for performing an operation between two operands.
 
@@ -47,6 +49,8 @@ Objective:  Create test cases for production classes that involve reading data f
 
 ## Production classes description
 
+**Please, refer to [Store folder](https://github.com/dhennyacampos/testsmellspreventionguidelines/tree/main/code/Store) to access the production code.**
+
 **1) Product:**
 - A Product represents an item available in an online store. 
 - Each Product has various attributes like dimensions, SKU, manufacturer, type, etc. 
@@ -77,6 +81,7 @@ Objective:  Create test cases for production classes that involve reading data f
 
 **7) OrderFacadeImpl**
 - OrderFacadeImpl shows a communication interface between the store and user.
+
 
 ## Task #1 - Verifying Product Categorization in an Online Store
 
