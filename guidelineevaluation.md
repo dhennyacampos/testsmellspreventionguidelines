@@ -7,29 +7,36 @@
 
 ## Production classes description
 
-1) Product:
+**1) Product:**
 - A Product represents an item available in an online store. 
 - Each Product has various attributes like dimensions, SKU, manufacturer, type, etc. 
 - It has a set of ProductDescription instances that provide details about the product in different languages. 
 - It is associated with one or more Category instances, indicating the categories to which the product belongs. 
 
-2) MerchantStore:
+**2) MerchantStore:**
 - A MerchantStore represents an online store. 
 - It serves as the context for products and categories, indicating which products and categories belong to which store.
 
-3) Category:
+**3) Category:**
 - A Category represents a product category or classification.
 - Each Category has a set of CategoryDescription instances that provide details about the category in different languages.
 - It can have child categories, indicating a hierarchical structure.
 - It can have parent categories, indicating its position in the hierarchy.
 - It is associated with one or more Product instances, indicating the products that belong to the category.
 
-4) category description:
+**4) CategoryDescription:**
 - A CategoryDescription provides details about a category in a specific language.
 - It is associated with a Category, indicating the category it describes.
 
+**5) ProductImage:**
+- A ProductImage provides images for each product in a store.
 
+**6) ProductAvailability:**
+- A ProductAvailability indicates whether the product is available, the number max and min for an order
+- Each Product may have a description indicating the ProductAvailability
 
+**7) OrderFacadeImpl**
+- OrderFacadeImpl shows a communication interface between the store and user.
 
 ## Task #1 - Verifying Product Categorization in an Online Store
 
