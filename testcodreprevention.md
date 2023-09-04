@@ -2,7 +2,7 @@
 
 
 <p align="center">
- <h2>Test codre prevention</h2>
+ <h2>Test code prevention</h2>
 </p>
 
 
