@@ -75,10 +75,10 @@
        12             .build();
        13
        14    //test user
-       15    assertEquals("Mensagem explanatória 01", authentication.getUser().getId(),"admin");
-       16    assertEquals("Mensagem explanatória 02",authentication.getUser().getUsername(),"admin");
-       17    assertEquals("Mensagem explanatória 03",authentication.getUser().getName(),"Administrator");
-       18    assertEquals("Mensagem explanatória 04",authentication.getUser().getUserType(), "default")
+       15    assertEquals("Explanatory message 01", authentication.getUser().getId(),"admin");
+       16    assertEquals("Explanatory message 02",authentication.getUser().getUsername(),"admin");
+       17    assertEquals("Explanatory message 03",authentication.getUser().getName(),"Administrator");
+       18    assertEquals("Explanatory message 04",authentication.getUser().getUserType(), "default")
        19
        20 }
        ```
