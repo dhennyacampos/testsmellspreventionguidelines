@@ -1,3 +1,5 @@
+package ufba.br;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -8,7 +10,7 @@ import java.util.List;
 
 public class IOHandler {
     public List<String> readOperationsFromFile(String fileName) throws IOException {
-        List<String> operations = new ArrayList<>();
+        List<String> operations = new ArrayList<String>();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -27,3 +29,4 @@ public class IOHandler {
         }
     }
 }
+

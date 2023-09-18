@@ -1,6 +1,10 @@
-public class MathOperations {
-    public double evaluateOperation(String operation) throws Exception {
+package ufba.br;
 
+public class MathOperations {
+	double operand1;
+	double operand2;
+
+	public double evaluateOperation(String operation) throws Exception {
         // For simplicity, assume the input format is: "operand operator operand"
         String[] tokens = operation.split(" ");
         if (tokens.length != 3) {
@@ -28,3 +32,4 @@ public class MathOperations {
         }
     }
 }
+
