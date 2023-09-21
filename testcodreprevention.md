@@ -275,26 +275,26 @@
     * <b>Exemple:</b>
       
        ``` java
-        1  public class LocalFileConfigRepositoryTest {
-        2  
-        3   protected void setUp() {
-        4     LocalFileConfigRepository localRepo = mockito.spy(new LocalFileConfigRepository(someNamespace, upstreamRepo));
-        5   }
-        6  
-        7  @Test	
-        8  public void testLoadConfigWithLocalFileAndFallbackRepo() throws Exception {
-        9   File file = new File(someBaseDir, assembleLocalCacheFileName());
-        10      
-        11     String someValue = "someValue";
-        12      
-        13     Files.write(defaultKey + "=" + someValue, file, Charsets.UTF_8);
-        14      
-        15     localRepo.setLocalCacheDir(someBaseDir, true);
-        16      
-        17     Properties properties = localRepo.getConfig();
-        18      
-        19     assertEquals(defaultValue, properties.getProperty(defaultKey));
-        20  }
+       1   public class LocalFileConfigRepositoryTest {
+       2       private LocalFileConfigRepository localRepo
+       3       
+       4       @Before
+       5       public void setUp() {
+       6          localRepo = mockito.spy(new LocalFileConfigRepository(someNamespace, upstreamRepo));
+       7       }
+       8   
+       9       @Test
+       10       public void testLoadConfigWithLocalFileAndFallbackRepo() throws Exception {
+       11           File file = new File(someBaseDir, assembleLocalCacheFileName());
+       12           String someValue = "someValue";
+       13           Files.write(defaultKey + "=" + someValue, file, Charsets.UTF_8);
+       14           
+       15           localRepo.setLocalCacheDir(someBaseDir, true);
+       16           
+       17           Properties properties = localRepo.getConfig();
+       18           
+       19           assertEquals(defaultValue, properties.getProperty(defaultKey));
+       20   }
        ```
      * <b>Prevention 3:</b> Using JUnit resources to handle temporary files.
      * <b>Exemple:</b>
