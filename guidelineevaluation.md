@@ -15,8 +15,6 @@
 
 ## Production classes description
 
-**Please, refer to [Calculator folder](https://github.com/dhennyacampos/testsmellspreventionguidelines/tree/main/code/Calculator) to access the production code.**
-
 Diagram 1 - Relationship between the class MathOperations and IOHandler ![Diagram #5](Calculator-AllTasks.png)
 
 **1) MathOperations:**
