@@ -4,7 +4,8 @@
  <h2>Tools to create test classes</h2>
 </p>
 
-* Intellij IDEA
+* IntelliJ IDEA
+* Visual Studio Code
 
 
 **Note**: For this research, the use of ChatGPT or similar cannot be used.
