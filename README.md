@@ -3,7 +3,7 @@
  <h2>Welcome 👋</h2>
 </p>
 
-<p align="justify">📌 This reade.me  xxxx </i> xxx </p>
+<p align="justify">📌 This reade.me   </i> shows test smells prevention guidelines. This guide first presents the structures of test codes that can be indicators of the presence of test smells. Secondly, we present the definition of six types of test smells. Third, we present a guideline on how to prevent the insertion of these six test smells in the test code; then, we validate this guideline through an experiment.  </p>
 
 <p align="justify">📎 Link to paper <a href="testsmells">[not available]</a></p>
 
