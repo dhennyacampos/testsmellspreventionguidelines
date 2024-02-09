@@ -7,7 +7,8 @@
 
 <p align="justify">📎 Link to paper <a href="testsmells">[not available]</a></p>
 
-<p align="justify">📋 <b>Abstract:</b>xxxxxx</p>  
+<p align="justify">📋 <b>Abstract:</b>Software development is a collaborative and social activity that necessitates the knowledge and expertise of multiple individuals. Software development is more than just coding and programming. It includes many human-centered characteristics, such as communication and personality, which can have a substantial impact on the success of software projects and code quality. Several studies in the literature address the quality of test code and the corrections of test smells and their refactorings. However, little empirical evidence exists on human aspects and test code quality. Our previous works investigated the relationship between developer experience, test creation, and maintenance strategies through developers' perceptions and test code quality. This study aims to create and validate a set of guidelines to prevent the insertion of 6 types of test smells when creating and maintaining test cases during the software evolution. In this sense, we want to derive a set of guidelines based on our previous studies. Based on shared knowledge and developers' experiences, we have created a set of guidelines to help developers avoid inserting test smells when creating unit test classes. The results of this research point to the effectiveness and applicability of the test smell prevention guidelines, showing a positive relationship through high Cronbach's alpha coefficients. In addition, the study reports the importance of considering developers' diverse experiences and perspectives in developing and implementing test guidelines, highlighting that even those familiar with JUnit faced challenges when creating test cases.</p>  
+
 
 
 ![JAVA](https://img.shields.io/badge/java%20-%23323330.svg?&style=for-the-badge&logo=perfil&logoColor=black&color=F745B5)
